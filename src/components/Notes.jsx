@@ -60,7 +60,11 @@ function Notes(){
         setNotes(notes.filter((note) => note.id !== id))
     }, [notes])
 
-    const [formData, setFormData] = useState({ title: "", body: "" })
+    const [formData, setFormData] = useState(() => {
+        const saved = localStorage.getItem('draft')
+        return saved ? JSON.parse(saved) : { title: "", body: "" }
+    })
+
     const [search, setSearch] = useState("")
     const titleRef = useRef(null)
 
