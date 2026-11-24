@@ -39,9 +39,9 @@ function Notes(){
         if(!title || !body){
             return
         }
-
+        
         const newNote = {
-            id: Date.now(),
+            id: crypto.randomUUID(),
             title: title,
             body: body
         }
